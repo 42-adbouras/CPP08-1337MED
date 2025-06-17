@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:05:28 by adbouras          #+#    #+#             */
-/*   Updated: 2025/05/26 10:00:34 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/05/26 12:29:08 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 #include <algorithm>
 
 #define BLUE	"\033[1;34m"
@@ -23,7 +24,7 @@
 #define RESET	"\033[0m"
 
 template<typename T>
-void	easyfind( std::vector<T>& vec, T target );
+typename T::iterator	easyfind( T& vec, int target );
 
 class	NotFoundException : public std::exception {
 public:
