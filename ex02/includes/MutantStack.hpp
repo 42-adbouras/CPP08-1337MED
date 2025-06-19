@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:54:37 by adbouras          #+#    #+#             */
-/*   Updated: 2025/06/17 21:23:35 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:27:53 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,20 @@ template<class T>
 class MutantStack : public std::stack<T>
 {
 public:
-	typedef typename std::stack<T>::container_type::iterator	iterator;
+	MutantStack( void );
+	MutantStack( const MutantStack& right );
+	~MutantStack( void );
+
+	MutantStack&	operator=( const MutantStack& right );
+
+	typedef typename std::stack<T>::container_type::iterator		iterator;
+	typedef typename std::stack<T>::container_type::const_iterator	const_iterator;
 	
-	iterator	begin( void ) { return this->c.begin(); }
-	iterator	end( void )  { return this->c.end(); }
+	iterator		begin( void );
+	iterator		end( void );
+
+	const_iterator	begin( void ) const;
+	const_iterator	end( void ) const;
 };
+
+#include "MutantStack.tpp"
