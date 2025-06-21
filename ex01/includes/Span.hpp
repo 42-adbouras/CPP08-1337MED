@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 12:52:45 by adbouras          #+#    #+#             */
-/*   Updated: 2025/06/17 14:57:54 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/06/21 12:50:08 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <exception>
+
+#define BLUE	"\033[1;34m"
+#define RED		"\033[1;31m"
+#define GREEN	"\033[1;32m"
+#define RESET	"\033[0m"
+
+typedef std::vector<int>::iterator v_iterator;
 
 class Span
 {
@@ -37,7 +45,12 @@ public:
 	unsigned int		getSize( void ) const;
 	std::vector<int>	getVect( void ) const;
 
-	void	addRange(std::vector<int>::iterator start, std::vector<int>::iterator end);
+	class	SpanException : public std::exception {
+	public:
+		const char*	what() const throw();
+	};
+
+	void	addRange(v_iterator start, v_iterator end);
 };
 
 std::ostream&	operator<<( std::ostream& COUT, const Span& right );

@@ -6,20 +6,20 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:08:20 by adbouras          #+#    #+#             */
-/*   Updated: 2025/05/26 11:48:54 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/06/21 13:22:23 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 
 template<typename T>
-typename T::iterator	easyfind( T& vec, int target )
+typename T::iterator	easyfind( T& container, int target )
 {
-	typename T::iterator	temp = std::find(vec.begin(), vec.end(), target);
+	typename T::iterator	temp = std::find(container.begin(), container.end(), target);
 
-	if (temp == vec.end())
+	if (temp == container.end())
 		throw NotFoundException();
-	size_t	pos = std::distance(vec.begin(), temp);
+	size_t	pos = std::distance(container.begin(), temp);
 	std::cout << "found: [" << *temp << "], at the index [" << pos << "]." << std::endl;
 	return (temp);
 }

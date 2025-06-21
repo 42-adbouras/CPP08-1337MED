@@ -6,7 +6,7 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 16:05:28 by adbouras          #+#    #+#             */
-/*   Updated: 2025/05/26 12:29:08 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/06/20 17:56:13 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@
 #define RESET	"\033[0m"
 
 template<typename T>
-typename T::iterator	easyfind( T& vec, int target );
+typename T::iterator	easyfind( T& container, int target );
 
-class	NotFoundException : public std::exception {
+
+class	NotFoundException : public std::exception
+{
 public:
 	const char*	what() const throw();
 };

@@ -6,7 +6,7 @@
 #    By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 12:52:09 by adbouras          #+#    #+#              #
-#    Updated: 2025/06/17 20:52:59 by adbouras         ###   ########.fr        #
+#    Updated: 2025/06/19 13:10:41 by adbouras         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CLN		=	\033[K\r\c
 
 CC		=	c++
 
-CFLAGS	=	-Wall -Wextra -Werror -Wshadow #-std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -Wshadow -std=c++98
 
 NAME	=	span
 
