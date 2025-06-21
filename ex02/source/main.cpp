@@ -6,15 +6,16 @@
 /*   By: adbouras <adbouras@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:20:03 by adbouras          #+#    #+#             */
-/*   Updated: 2025/06/19 11:35:32 by adbouras         ###   ########.fr       */
+/*   Updated: 2025/06/21 13:27:11 by adbouras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <list>
 
-int main()
+int main( void )
 {
+	std::cout << BLUE "::::::::::::    INTRA'S MAIN    ::::::::::::" RESET << std::endl;
 	{
 		MutantStack<int> mstack;
 
@@ -34,7 +35,6 @@ int main()
 
 		++it;
 		--it;
-
 		while (it != ite)
 		{
 			std::cout << *it << std::endl;
@@ -43,20 +43,20 @@ int main()
 
 		std::stack<int> s(mstack);
 	}
-	std::cout << ":::::::::::::::::::::::::::::::::::::::::::" << std::endl;
+	std::cout << BLUE "\n::::::::::::      LIST TEST     ::::::::::::" RESET << std::endl;
 	{
 		std::list<int> mstack;
 
 		mstack.push_back(5);
 		mstack.push_back(17);
 
-		std::cout << "Top : " << *(--mstack.end()) << std::endl;
-		mstack.erase(--mstack.end());
-		std::cout << "Size: " << mstack.size() << std::endl;
+		std::cout << "Back: " << mstack.back() << std::endl;
+		mstack.pop_back();
 		mstack.push_back(3);
 		mstack.push_back(5);
 		mstack.push_back(737);
 		mstack.push_back(0);
+		std::cout << "Size: " << mstack.size() << std::endl;
 
 		std::list<int>::iterator it  = mstack.begin();
 		std::list<int>::iterator ite = mstack.end();
@@ -70,28 +70,20 @@ int main()
 			++it;
 		}
 	}
-	std::cout << ":::::::::::::::::::::::::::::::::::::::::::" << std::endl;
+	std::cout << BLUE "\n::::::::::::   CONST ITERATOR   ::::::::::::" RESET << std::endl;
 	{
 		MutantStack<int>	mstack;
 
 		mstack.push(5);
-		mstack.push(17);
-
-		std::cout << "Top : "<< mstack.top() << std::endl;
-		mstack.pop();
-		std::cout << "Size: " << mstack.size() << std::endl;
 		mstack.push(3);
 		mstack.push(5);
 		mstack.push(737);
 		mstack.push(0);
 
 		const MutantStack<int>	const_mstack	= mstack;
-		
+
 		MutantStack<int>::const_iterator	it	= const_mstack.begin();
 		MutantStack<int>::const_iterator	ite	= const_mstack.end();
-
-		++it;
-		--it;
 
 		while (it != ite)
 		{
@@ -99,6 +91,7 @@ int main()
 			++it;
 		}
 		
+		std::stack<int> s(mstack);
 	}
 	return 0;
 }
